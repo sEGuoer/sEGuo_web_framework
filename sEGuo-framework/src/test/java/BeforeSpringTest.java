@@ -34,11 +34,11 @@ public class BeforeSpringTest {
         System.out.println("BeforeSpringTest.BeforeAllTest");
         a = "1";
     }
-  /*  @AfterAll
+    @AfterAll
     static void AfterAllTest(){
         System.out.println("BeforeSpringTest.AfterAllTest");
         a = "3";
-    }*/
+    }
     @Test
     void InitializingBeanTest(){
         System.out.println(a);
