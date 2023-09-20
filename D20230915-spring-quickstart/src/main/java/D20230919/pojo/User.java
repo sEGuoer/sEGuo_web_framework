@@ -6,7 +6,9 @@ public class User {
         this.password = password;
     }
 
-    String email ;
+
+
+    String email;
     String password;
 
     public String getEmail() {

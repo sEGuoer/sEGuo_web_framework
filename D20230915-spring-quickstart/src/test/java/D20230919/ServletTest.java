@@ -25,4 +25,14 @@ public class ServletTest {
         cpa.close();
         Assertions.assertNotNull("InitializingBean(spring给的规范初始化接口)");
     }
+    @Test
+    void ServletDestroyImpl(){
+        ClassPathXmlApplicationContext cpa = new ClassPathXmlApplicationContext("bean.xml");
+        cpa.close();
+        Assertions.assertNotNull("DisposableBean(规范destroy接口)");
+    }
+    @Test
+    void PropAndConstructor(){
+        Assertions.assertNotNull("在bean.xml初始化构造器中的值 <constructor-arg>,<property>");
+    }
 }
