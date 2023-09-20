@@ -1,4 +1,5 @@
 import com.sEGuo.dao.UserDao;
+import com.sEGuo.dao.impl.InjectDemoUserDao;
 import com.sEGuo.pojo.User;
 import com.sEGuo.sevice.UserSevice;
 import org.junit.jupiter.api.AfterAll;
@@ -56,6 +57,17 @@ public class BeforeSpringTest {
         ApplicationContext ac=new ClassPathXmlApplicationContext("bean.xml");
         UserSevice userSevice =(UserSevice) ac.getBean("UserSevice");
         Assertions.assertNotNull(userSevice);
+        /*ac.close();
+        * 此时就会显示出destroy的方法的输出结果(接口重写的方法)
+        * */
+
+    }
+    @Test
+    void constructorArgTest(){
+        ApplicationContext ac=new ClassPathXmlApplicationContext("bean.xml");
+        InjectDemoUserDao injectDemoUserDao =(InjectDemoUserDao) ac.getBean("InjectDemoUserDao");
+        System.out.println(injectDemoUserDao.getUserByEmail("123","123"));
+        Assertions.assertNull(injectDemoUserDao.getUserByEmail("123","123"));
         /*ac.close();
         * 此时就会显示出destroy的方法的输出结果(接口重写的方法)
         * */
