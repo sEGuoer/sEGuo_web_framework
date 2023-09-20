@@ -4,9 +4,9 @@ import com.sEGuo.sevice.UserSevice;
 import com.sEGuo.dao.UserDao;
 import com.sEGuo.pojo.User;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.DisposableBean;
 
-
-public class UserSeviceSimple implements UserSevice, InitializingBean{
+public class UserSeviceSimple implements UserSevice, InitializingBean,DisposableBean{
     @Override
     public void afterPropertiesSet() throws Exception {
         System.out.println("UserSeviceSimple.afterPropertiesSet");
