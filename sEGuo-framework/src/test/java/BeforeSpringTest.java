@@ -24,4 +24,14 @@ public class BeforeSpringTest {
         * */
 
     }
+    @Test
+    void InitializingBeanTest(){
+        ApplicationContext ac=new ClassPathXmlApplicationContext("bean.xml");
+        UserSevice userSevice =(UserSevice) ac.getBean("UserSevice");
+        Assertions.assertNotNull(userSevice);
+        /*ac.close();
+        * 此时就会显示出destroy的方法的输出结果
+        * */
+
+    }
 }

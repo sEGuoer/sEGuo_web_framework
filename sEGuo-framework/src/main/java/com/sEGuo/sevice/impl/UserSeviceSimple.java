@@ -3,17 +3,21 @@ package com.sEGuo.sevice.impl;
 import com.sEGuo.sevice.UserSevice;
 import com.sEGuo.dao.UserDao;
 import com.sEGuo.pojo.User;
+import org.springframework.beans.factory.InitializingBean;
 
-public class UserSeviceSimple implements UserSevice {
+
+public class UserSeviceSimple implements UserSevice, InitializingBean{
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("UserSeviceSimple.afterPropertiesSet");
+    }
+
     protected UserDao userSimple;
 
     public UserSeviceSimple(UserDao userSimple) {
         this.userSimple = userSimple;
     }
 
-    public void init() {
-        System.out.println("UserSeviceSimple.init");
-    }
 
     public void destroy() {
         System.out.println("UserSeviceSimple.destroy");
