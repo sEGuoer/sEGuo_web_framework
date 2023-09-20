@@ -6,17 +6,15 @@ import com.sEGuo.pojo.User;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
-public class UserSeviceSimple implements UserSevice, InitializingBean, DisposableBean {
+public class UserSeviceSimple implements UserSevice {
     protected UserDao userSimple;
 
-    public UserSeviceSimple(UserDao userSimple) {
+    public void setUserSimple(UserDao userSimple) {
         this.userSimple = userSimple;
     }
 
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        System.out.println("UserSeviceSimple.afterPropertiesSet");
-    }
+
+
 
 
     public String userLogin(String email, String pwd){
@@ -24,8 +22,5 @@ public class UserSeviceSimple implements UserSevice, InitializingBean, Disposabl
         return "email="+user.getEmail()+" password="+user.getPassword();
     }
 
-    @Override
-    public void destroy() throws Exception {
-        System.out.println("UserSeviceSimple.destroy");
-    }
+
 }
