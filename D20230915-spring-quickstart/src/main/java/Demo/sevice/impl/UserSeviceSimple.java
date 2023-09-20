@@ -6,7 +6,7 @@ import Demo.sevice.UserSevice;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
-public class UserSeviceSimple implements UserSevice, InitializingBean {
+public class UserSeviceSimple implements UserSevice, InitializingBean, DisposableBean {
     protected UserDao userSimple;
 
     public UserSeviceSimple(UserDao userSimple) {
@@ -15,7 +15,7 @@ public class UserSeviceSimple implements UserSevice, InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        System.out.println("接口规定的初始化UserSeviceSimple.afterPropertiesSet");
+        System.out.println("UserSeviceSimple.afterPropertiesSet");
     }
 
 
@@ -24,5 +24,8 @@ public class UserSeviceSimple implements UserSevice, InitializingBean {
         return "email="+user.getEmail()+" password="+user.getPassword();
     }
 
-
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("UserSeviceSimple.destroy");
+    }
 }
