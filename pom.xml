@@ -17,6 +17,7 @@
     <modules>
         <module>D20230915-before-framework</module>
         <module>D20230915-spring-quickstart</module>
+        <module>sEGuo-framework</module>
     </modules>
     <properties>
         <java.version>17</java.version>

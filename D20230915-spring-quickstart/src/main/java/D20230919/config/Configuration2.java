@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration(proxyBeanMethods = false)
 public class Configuration2 {
-    @Bean
-    public User testConfiguration(){
+    @Bean(name = "testConfiguration")
+    public User testConfiguration2(){
         return new User("123","123");
     }
 }
