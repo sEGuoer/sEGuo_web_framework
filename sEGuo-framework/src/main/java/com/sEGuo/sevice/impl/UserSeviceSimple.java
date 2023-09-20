@@ -9,10 +9,9 @@ import org.springframework.beans.factory.InitializingBean;
 public class UserSeviceSimple implements UserSevice {
     protected UserDao userSimple;
 
-    public void setUserSimple(UserDao userSimple) {
+    public UserSeviceSimple(UserDao userSimple) {
         this.userSimple = userSimple;
     }
-
 
 
 
