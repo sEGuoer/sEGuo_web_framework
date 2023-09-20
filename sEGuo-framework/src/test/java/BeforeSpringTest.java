@@ -1,13 +1,18 @@
 import com.sEGuo.dao.UserDao;
 import com.sEGuo.pojo.User;
 import com.sEGuo.sevice.UserSevice;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class BeforeSpringTest {
+    static String a;
+
+
     @Test
     void BeforeSpringTest(){
         ApplicationContext ac=new ClassPathXmlApplicationContext("bean.xml");
@@ -24,8 +29,19 @@ public class BeforeSpringTest {
         * */
 
     }
+    @BeforeAll
+    static void BeforeAllTest(){
+        System.out.println("BeforeSpringTest.BeforeAllTest");
+        a = "1";
+    }
+  /*  @AfterAll
+    static void AfterAllTest(){
+        System.out.println("BeforeSpringTest.AfterAllTest");
+        a = "3";
+    }*/
     @Test
     void InitializingBeanTest(){
+        System.out.println(a);
         ApplicationContext ac=new ClassPathXmlApplicationContext("bean.xml");
         UserSevice userSevice =(UserSevice) ac.getBean("UserSevice");
         Assertions.assertNotNull(userSevice);
