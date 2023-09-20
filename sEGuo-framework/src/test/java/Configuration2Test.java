@@ -1,6 +1,8 @@
 
 
 import com.sEGuo.config.Configuration2;
+import com.sEGuo.config.ScanConfig;
+import com.sEGuo.config.ScanConfig2;
 import com.sEGuo.pojo.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -23,14 +25,24 @@ public class Configuration2Test {
 
     }
 
-   /* @Test
+    @Test
     void scanConfig(){
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ScanConfig.class);
         String[] beanDefinitionNames = context.getBeanDefinitionNames();
         for (String name : beanDefinitionNames) {
             System.out.println(name);
         }
-        Assertions.assertNotNull(context.getBean("scanConfig"));
-        Assertions.assertNotNull(context.getBean("scanDao"));
-    }*/
+        Assertions.assertTrue(context.containsBean("scanConfig"));
+        Assertions.assertTrue(context.containsBean("scanDao"));
+    }
+    @Test
+    void scanConfig2(){
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ScanConfig2.class);
+        String[] beanDefinitionNames = context.getBeanDefinitionNames();
+        for (String name : beanDefinitionNames) {
+            System.out.println(name);
+        }
+        Assertions.assertFalse(context.containsBean("scanConfig"));
+        Assertions.assertTrue(context.containsBean("scanDao"));
+    }
 }
